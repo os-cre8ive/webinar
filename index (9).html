@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3 dny online workshop | O&amp;S CreativeWorks (SashaLab)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+:root{--bg:#05080f;--text:#e8f1fb;--muted:#8fa3bb;--cyan:#22e4ff;--blue:#2f6bff;--glass:rgba(255,255,255,.055);--line:rgba(120,190,255,.2);--err:#ff6b8a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 Montserrat,Inter,Poppins,system-ui,sans-serif;overflow-x:hidden;
+background-image:radial-gradient(60rem 30rem at 85% -5%,rgba(47,107,255,.22),transparent 60%),radial-gradient(45rem 28rem at -10% 35%,rgba(34,228,255,.12),transparent 60%)}
+a{color:var(--cyan)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+section{padding:5rem 0}
+h1,h2,h3{line-height:1.12;margin:0}
+h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:62ch;margin:0 0 2.2rem}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 1rem Montserrat,sans-serif;color:#03121c;text-decoration:none;padding:1rem 1.8rem;border-radius:999px;background:linear-gradient(120deg,var(--cyan),var(--blue));box-shadow:0 0 32px rgba(34,228,255,.35);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(34,228,255,.55)}
+.btn[disabled]{opacity:.7;cursor:progress;transform:none}
+/* top bar */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(5,8,15,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
+header img{height:42px;border-radius:8px;display:block}
+header .btn{padding:.6rem 1.2rem;font-size:.9rem}
+/* hero */
+.hero{padding:5.5rem 0 4rem;position:relative}
+.hero h1{font-size:clamp(2.4rem,7.4vw,5.4rem);font-weight:900;letter-spacing:-.02em;max-width:15ch}
+.hero h1 span{display:block;font-size:clamp(1.1rem,2.6vw,1.7rem);font-weight:500;letter-spacing:0;color:var(--cyan);max-width:34ch;margin-top:1.2rem;line-height:1.4}
+.hero p{color:var(--muted);max-width:58ch;font-size:1.1rem;margin:1.6rem 0 2.2rem}
+.strings{position:absolute;inset:0 0 auto auto;width:min(46%,520px);height:100%;pointer-events:none;opacity:.55}
+.strings line{stroke:var(--cyan);stroke-width:1.3;stroke-linecap:round;transform-origin:50% 50%;animation:vib 3.2s ease-out 1 both}
+.strings line:nth-child(2){animation-delay:.12s;stroke:#5fb0ff}.strings line:nth-child(3){animation-delay:.24s;stroke:#4a85ff}
+.strings line:nth-child(4){animation-delay:.36s;stroke:#5fb0ff}.strings line:nth-child(5){animation-delay:.48s}.strings line:nth-child(6){animation-delay:.6s;stroke:#4a85ff}
+@keyframes vib{0%{transform:scaleX(1) rotate(0)}8%{transform:translateX(7px) rotate(.8deg)}18%{transform:translateX(-6px) rotate(-.6deg)}30%{transform:translateX(4px)}45%{transform:translateX(-2px)}100%{transform:none}}
+@media(max-width:700px){.strings{opacity:.25;width:70%}}
+/* program */
+.days{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.day{padding:1.8rem}
+.day .tag{display:inline-block;font-weight:800;font-size:.85rem;color:#03121c;background:var(--cyan);border-radius:8px;padding:.15rem .7rem;margin-bottom:1rem}
+.day h3{font-size:1.2rem;margin-bottom:1rem}
+.day ul{margin:0;padding:0;list-style:none}
+.day li{position:relative;padding:.55rem 0 .55rem 1.5rem;border-top:1px solid var(--line);color:#c6d6e8;font-size:.95rem}
+.day li::before{content:"";position:absolute;left:0;top:1.2rem;width:.7rem;height:2px;background:var(--cyan)}
+/* about */
+.about{display:grid;gap:2rem;grid-template-columns:1fr;align-items:center;padding:2rem}
+@media(min-width:800px){.about{grid-template-columns:240px 1fr;padding:2.6rem}}
+.about img{width:100%;max-width:240px;border-radius:16px;border:1px solid var(--line)}
+.about p{color:#c6d6e8;margin:.2rem 0 1rem}
+/* form */
+form{padding:2rem;display:grid;gap:1.1rem}
+@media(min-width:700px){form{padding:2.6rem}}
+label.f{display:grid;gap:.4rem;font-weight:600;font-size:.92rem}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;font:inherit;font-weight:400;color:var(--text);background:rgba(3,10,20,.7);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem}
+input:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,228,255,.18)}
+textarea{min-height:100px;resize:vertical}
+.err{color:var(--err);font-size:.82rem;font-weight:500;min-height:1.1em}
+.invalid input,.invalid textarea{border-color:var(--err)}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:.8rem}
+legend{font-weight:600;font-size:.92rem;margin-bottom:.6rem;padding:0}
+.pk{display:block;cursor:pointer}
+.pk input{position:absolute;opacity:0}
+.pk div{border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;background:rgba(3,10,20,.5);transition:border-color .2s,background .2s}
+.pk b{display:block}.pk small{color:var(--muted)}
+.pk input:checked+div{border-color:var(--cyan);background:rgba(34,228,255,.08);box-shadow:0 0 0 1px var(--cyan)}
+.pk input:focus-visible+div{outline:2px solid var(--cyan);outline-offset:3px}
+.gdpr{display:flex;gap:.7rem;align-items:flex-start;font-size:.9rem;color:#c6d6e8}
+.gdpr input{margin-top:.35rem;accent-color:var(--cyan);width:18px;height:18px;flex:none}
+.formerr{color:var(--err);font-weight:600}
+.hp{position:absolute;left:-9999px}
+/* contact + footer */
+.contact{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.contact .glass{padding:1.5rem}
+.contact h3{font-size:.95rem;color:var(--cyan);margin-bottom:.5rem}
+.contact p{margin:0;color:#c6d6e8;font-size:.95rem;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between}
+footer button{background:none;border:0;color:var(--cyan);font:inherit;cursor:pointer;text-decoration:underline;padding:0;margin-right:1.2rem}
+/* modal */
+dialog{border:1px solid var(--line);border-radius:22px;background:rgba(9,15,28,.96);color:var(--text);width:min(600px,100% - 2rem);max-height:86vh;padding:0;overflow:auto}
+dialog::backdrop{background:rgba(2,4,9,.75);backdrop-filter:blur(6px)}
+.mb{padding:2rem}.mb h2{font-size:1.5rem}.mb p,.mb li{color:#c6d6e8}
+.mb .x{float:right;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:.3rem .8rem;cursor:pointer;font:inherit}
+.pay{display:grid;gap:1rem;grid-template-columns:1fr;margin:1.2rem 0}
+@media(min-width:520px){.pay{grid-template-columns:170px 1fr}}
+.qr{background:#fff;border-radius:14px;padding:10px;width:170px;height:170px}.qr svg{width:100%;height:100%;display:block}
+.pay dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;font-size:.92rem}.pay dt{color:var(--muted)}.pay dd{margin:0;font-weight:600}
+.note{font-size:.85rem;color:var(--muted)}
+.cd{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;padding:.9rem 1.3rem;margin:0 0 1.8rem;border-radius:16px}
+.cdl{color:var(--muted);font-size:.9rem}.cdv{font-weight:800;font-size:1.25rem;color:var(--cyan)}
+.ticket{border:1px solid var(--cyan);border-radius:14px;padding:1rem 1.2rem;background:rgba(34,228,255,.08)}
+.ticket b{display:block}.ticket small{color:var(--muted)}
+.needs{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.needs .glass{padding:1.5rem}.needs h3{font-size:1.05rem;margin-bottom:.4rem}.needs p{margin:0;color:#c6d6e8;font-size:.93rem}
+details{border-top:1px solid var(--line);padding:1rem 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--cyan);font-size:1.4rem;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:#c6d6e8;margin:.8rem 0 0;max-width:65ch}
+.faq{padding:.5rem 2rem}
+.share{display:flex;flex-wrap:wrap;gap:.7rem}
+.share a,.share button{font:600 .92rem Montserrat,sans-serif;color:var(--text);text-decoration:none;cursor:pointer;background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:.65rem 1.2rem}
+.share a:hover,.share button:hover{border-color:var(--cyan)}
+.sum{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.4rem}.sum li{border-top:1px solid var(--line);padding-top:.4rem}
+.cdv{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{text-shadow:0 0 18px rgba(34,228,255,.75)}}
+.cap{max-width:58ch;margin:0 0 1.8rem;padding:.8rem 1.1rem;border-left:3px solid var(--blue);background:rgba(47,107,255,.12);border-radius:0 12px 12px 0;font-size:.92rem;color:#c6d6e8}
+.dd{display:inline-block;margin:0 0 1rem .7rem;color:var(--cyan);font-weight:600;font-size:.88rem}
+.coach{display:grid;gap:1.5rem;grid-template-columns:1fr;align-items:center;padding:2rem}
+@media(min-width:700px){.coach{grid-template-columns:130px 1fr}}
+.avatar{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:2rem;color:#03121c;background:linear-gradient(135deg,var(--cyan),var(--blue))}
+.coach p{margin:.4rem 0 0;color:#c6d6e8}
+select{width:100%;font:inherit;font-weight:400;color:var(--text);background:rgba(3,10,20,.7);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem}
+select:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,228,255,.18)}
+option{background:#0b1220}
+.retry{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--cyan);text-decoration:underline;cursor:pointer}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="data:image/webp;base64,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" alt="O&amp;S CreativeWorks">
+  <a class="btn" href="#prihlaska">Rezervovat místo</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <svg class="strings" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true">
+    <line x1="40" y1="0" x2="40" y2="600"/><line x1="100" y1="0" x2="100" y2="600"/><line x1="160" y1="0" x2="160" y2="600"/>
+    <line x1="220" y1="0" x2="220" y2="600"/><line x1="280" y1="0" x2="280" y2="600"/><line x1="340" y1="0" x2="340" y2="600"/>
+  </svg>
+  <h1>3DNY ONLINE WORKSHOP.<span>Vlastní projekt, domácí nahrávání a první studenti. Bez firmy, bez živnosti, bez omáčky.</span></h1>
+  <p>Třídenní živý workshop pro všechny, co chtějí začít s vlastní hudební tvorbou a předáváním know-how, i když si myslí, že ještě nejsou dost dobří. Celý workshop probíhá <b>100% online přes živý stream na LiveWebinar.com</b> z pohodlí domova.</p>
+  <div class="cd glass" id="cd" aria-label="Odpočet do začátku"><span class="cdl">Do začátku živého streamu zbývá:</span><span class="cdv" id="cdv"></span></div>
+  <div class="cap"><b>Upozornění:</b> Počet míst na živém streamu je omezen pro zachování interaktivity a prostoru pro dotazy.</div>
+  <a class="btn" href="#prihlaska">Chci rezervovat místo</a>
+</div></section>
+
+<section id="program"><div class="wrap">
+  <h2>Program webináře</h2>
+  <p class="lead">Tři dny, tři kroky: od čisté techniky přes harmonii až k prvním sólům.</p>
+  <div class="days">
+    <article class="glass day"><span class="tag">DEN 1</span><span class="dd" data-day="0"></span><h3>Jak začít s vlastním projektem (i když si myslíš, že „ještě nejsi dost dobrý“)</h3><ul>
+      <li>Kolik let praxe reálně potřebuješ, když jsi nikdy nikoho oficiálně neučil? Překonání strachu a vnitřního bloku, ať je ti 16 nebo 40 let.</li>
+      <li>Jak funguje autorský a kreativní studentský projekt O&amp;S CreativeWorks (SashaLab) jako nekomerční iniciativa bez živnosti a firmy.</li>
+      <li>Jak postavit první prezentaci, nastavit sociální sítě (Instagram @os_cre8ive_sashalab, FB skupiny) a oslovit první lidi bez placené reklamy.</li></ul></article>
+    <article class="glass day"><span class="tag">DEN 2</span><span class="dd" data-day="1"></span><h3>Domácí nahrávání na koleni vs. chytrá investice (rozpočet 0–3k Kč vs. 3–10k Kč)</h3><ul>
+      <li>Low-cost realita (0–3 000 Kč): jak nahrávat španělku na starý MacBook Air (2013) se streamovacím mikrofonem Yenkee v bytě s hroznou akustikou. Triky s dekami, umístění mikrofonu, bezplatný software a stříhání bez nervů.</li>
+      <li>Budget do 10 000 Kč: do čeho chytře investovat, když máš prázdný stůl a chceš solidní domácí sound lab, aniž bys vyhodil peníze za blbosti.</li>
+      <li>Jak eliminovat rušivé zvuky z bytu a drnčení a vytáhnout nejlepší surový zvuk.</li></ul></article>
+    <article class="glass day"><span class="tag">DEN 3</span><span class="dd" data-day="2"></span><h3>Jak začít učit a předávat know-how bez podnikání</h3><ul>
+      <li>Jak funguje výuka jako studentský přivýdělek a autorská tvorba bez živnostenského listu.</li>
+      <li>Kde reálně hledat první studenty a jak s nimi komunikovat: přátelsky, ale férově.</li>
+      <li>Systém lekcí, organizace času a komunikace přes e-mail (os.cre8ive@gmail.com).</li><li>Závěrečný živý Q&amp;A blok na chatu.</li></ul></article>
+  </div>
+</div></section>
+
+<section id="lektor"><div class="wrap">
+  <h2>Kdo vás provede</h2>
+  <div class="glass coach">
+    <div class="avatar" aria-hidden="true">OK</div>
+    <div><h3>Oleksandr Kukushkin</h3>
+      <p>Zakladatel O&amp;S CreativeWorks a kytarového projektu SashaLab.</p>
+      <p>9 let praxe s akustickou kytarou. Sdílí reálné know-how z praxe, bez zbytečné omáčky.</p></div>
+  </div>
+</div></section>
+
+<section id="potrebujete"><div class="wrap">
+  <h2>Co budete potřebovat</h2>
+  <p class="lead">Stačí málo. Připojíte se z domova, bez cestování.</p>
+  <div class="needs">
+    
+    <div class="glass"><h3>Počítač nebo telefon</h3><p>Se stabilním internetem pro plynulý stream.</p></div>
+    <div class="glass"><h3>Mikrofon nebo chuť zkoušet</h3><p>Mikrofon se hodí, ale stačí i chuť zkoušet věci na koleni.</p></div>
+
+  </div>
+</div></section>
+
+<section id="bonusy"><div class="wrap">
+  <h2>Bonusy pro účastníky</h2>
+  <p class="lead">Navíc k živému vysílání.</p>
+  <div class="needs">
+    <div class="glass"><h3>PDF skripta / shrnutí</h3><p>Stručné shrnutí a odkazy ke každému dni.</p></div>
+    <div class="glass"><h3>Živý Q&amp;A chat</h3><p>Dotazy v reálném čase a závěrečný Q&amp;A blok.</p></div>
+    
+  </div>
+</div></section>
+
+<section id="projekt"><div class="wrap">
+  <div class="glass about">
+    <img src="data:image/webp;base64,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" alt="Logo O&amp;S CreativeWorks">
+    <div>
+      <h2>O projektu a značce</h2>
+      <p><b>O&amp;S CreativeWorks</b> je autorský kreativní projekt Oleksandra Kukushkina. Pod ním vzniká kytarová pod-značka <b>SashaLab</b>, kde se hudba, výuka a tvorba potkávají na jednom místě.</p>
+      <p>Workshop vychází z reálné praxe: bez zbytečné omáčky ukazuje, jak začít s vlastním projektem, nahráváním i výukou.</p>
+      <a href="https://oscre8ive.wixsite.com/guitar-lessons-3d" target="_blank" rel="noopener">Oficiální web projektu</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>Časté dotazy</h2>
+  <p class="lead">Nenašli jste odpověď? Napište na os.cre8ive@gmail.com.</p>
+  <div class="glass faq">
+    <details><summary>Bude z workshopu k dispozici záznam?</summary><p>Workshop je primárně živý, abyste mohli klást dotazy a hrát s lektorem. Informace o případném záznamu pošleme e-mailem před začátkem, proto počítejte s účastí naživo.</p></details>
+    <details><summary>Je workshop vhodný i pro začátečníky?</summary><p>Ano. Workshop je pro každého, kdo chce začít, bez ohledu na věk a zkušenosti. Předchozí praxi s učením ani nahráváním nepotřebujete.</p></details>
+    <details><summary>Jaké vybavení potřebuji k účasti?</summary><p>Telefon nebo počítač se stabilním internetem. Mikrofon se hodí, ale není nutný.</p></details>
+    <details><summary>Jak se přihlásím?</summary><p>Vyberte dny ve formuláři níže a odešlete přihlášku. Po odeslání uvidíte shrnutí a odkaz do místnosti na LiveWebinar.com vám pošleme e-mailem.</p></details>
+    <details><summary>Jak probíhá živý chat?</summary><p>Během vysílání můžete psát dotazy do chatu. Na konci workshopu je závěrečný živý Q&amp;A blok.</p></details>
+  </div>
+</div></section>
+
+<section id="prihlaska"><div class="wrap">
+  <h2>Přihláška</h2>
+  <p class="lead">Vyplňte formulář a rezervujte si místo. Po odeslání dostanete pokyny k platbě.</p>
+  <form id="reg" class="glass" novalidate>
+    <label class="f">Jméno a příjmení
+      <input type="text" name="jmeno" autocomplete="name" required><span class="err" data-for="jmeno"></span></label>
+    <label class="f">E-mailová adresa
+      <input type="email" name="email" autocomplete="email" required><span class="err" data-for="email"></span></label>
+    <label class="f">Telefonní číslo
+      <input type="tel" name="telefon" autocomplete="tel" placeholder="+420 123 456 789" required><span class="err" data-for="telefon"></span></label>
+    <label class="f">Výběr dnů
+      <select name="vybrane_dny" id="dnySel" required></select></label>
+    <label class="f">Poznámka / dotaz pro lektora (nepovinné)
+      <textarea name="poznamka"></textarea></label>
+    <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div>
+      <label class="gdpr"><input type="checkbox" name="souhlas_gdpr" required>
+        <span>Souhlasím se zpracováním osobních údajů (<a href="#" data-modal="gdpr">GDPR</a>) a <a href="#" data-modal="obchodni">Obchodními podmínkami</a>.</span></label>
+      <span class="err" data-for="souhlas_gdpr"></span>
+    </div>
+    <div class="formerr" id="formerr" role="alert"></div>
+    <button class="btn" type="submit" id="submitBtn">Odeslat přihlášku a rezervovat místo</button>
+  </form>
+</div></section>
+
+<section id="sdileni"><div class="wrap">
+  <h2>Pošlete to dál</h2>
+  <p class="lead">Znáte někoho, kdo hraje na kytaru? Sdílejte odkaz.</p>
+  <div class="share">
+    <a id="shWa" target="_blank" rel="noopener" href="#">WhatsApp</a>
+    <a id="shMs" target="_blank" rel="noopener" href="#">Messenger</a>
+    <button type="button" id="shCopy">Kopírovat odkaz</button>
+  </div>
+</div></section>
+
+<section id="kontakt"><div class="wrap">
+  <h2>Kontakt na pořadatele</h2>
+  <p class="lead">Lektor a zakladatel: Oleksandr Kukushkin</p>
+  <div class="contact">
+    <div class="glass"><h3>Sídlo a působiště projektu</h3><p>Jungmannova 871/16<br>664 34 Kuřim<br>Workshop se koná výhradně online.</p></div>
+    <div class="glass"><h3>E-mail pro dotazy</h3><p><a href="mailto:os.cre8ive@gmail.com">os.cre8ive@gmail.com</a></p></div>
+    <div class="glass"><h3>Telefon</h3><p><a href="tel:+420732292782">+420 732 292 782</a><br>Oleksandr Kukushkin</p></div>
+    <div class="glass"><h3>Sociální sítě</h3><p>Instagram: @os_cre8ive_sashalab</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><button data-modal="gdpr">Ochrana osobních údajů</button><button data-modal="obchodni">Obchodní podmínky</button></div>
+  <div style="max-width:60ch">© 2026 O&amp;S CreativeWorks (SashaLab). Nekomerční autorský a kreativní studentský projekt. Případný registrační poplatek je dobrovolný příspěvek na technické a organizační náklady živého vysílání. Projekt ani webinář nejsou sponzorovány žádnou třetí stranou.</div>
+</div></footer>
+
+<dialog id="dlg"><div class="mb" id="dlgBody"></div></dialog>
+
+<script>
+/* ============ KONFIGURACE ============
+   Databáze: vyplňte jednu z možností.
+   A) Supabase (REST): SUPABASE_URL + SUPABASE_ANON_KEY, tabulka "registrace_webinar" (SQL viz dokumentace)
+   B) Firebase Firestore: viz funkce saveFirestore níže (vyžaduje načtení Firebase SDK na vlastním hostingu)
+   Bez konfigurace se přihláška uloží do artifact databáze (je-li dostupná) a jinak se otevře e-mail organizátorovi. */
+/* ===== NÁVOD: BEZPLATNÁ DATABÁZE =====
+   SUPABASE: 1) supabase.com → New project (Free). 2) SQL Editor → vložte a spusťte:
+     create table registrace_webinar (
+       id uuid primary key default gen_random_uuid(),
+       jmeno text, email text, telefon text, vybrane_dny text, poznamka text,
+       souhlas_gdpr boolean default true,
+       datum_registrace timestamptz default now(),
+       stav_platby text default 'cekaci' check (stav_platby in ('cekaci','zaplaceno','zruseno')));
+     alter table registrace_webinar enable row level security;
+     create policy "jen vlozeni" on registrace_webinar for insert to anon with check (true);
+   3) Project Settings → API: zkopírujte Project URL a anon public key do SUPABASE_URL a SUPABASE_ANON_KEY.
+   Přihlášky čtete a měníte stav platby v Table Editoru (anon klíč čtení nemá).
+   FIREBASE: 1) console.firebase.google.com → nový projekt → Firestore Database (test/production). 2) Rules:
+     match /registrace_webinar/{id} { allow create: if request.resource.data.souhlas_gdpr == true; allow read, update, delete: if false; }
+   3) Project settings → Your apps → Web: zkopírujte apiKey a projectId do CONFIG.FIRESTORE. Id přihlášky je ID dokumentu.
+   Vyplňte jen jednu službu. Klíče jsou veřejné, chrání je pravidla výše. */
+const CONFIG = {
+  SUPABASE_URL: "", SUPABASE_ANON_KEY: "",
+  FIRESTORE: { projectId: "", apiKey: "" },
+  DAYS: [ /* zástupná data, upravte na skutečný termín */
+    { short: "14. 5.", label: "Pátek 14. 5. 2027, 18:00", start: "2027-05-14T18:00:00+02:00", title: "Projekt & Překonání bloku" },
+    { short: "15. 5.", label: "Sobota 15. 5. 2027, 18:00", start: "2027-05-15T18:00:00+02:00", title: "Domácí nahrávání: Low-Cost vs. Budget" },
+    { short: "16. 5.", label: "Neděle 16. 5. 2027, 18:00", start: "2027-05-16T18:00:00+02:00", title: "Jak začít učit bez živnosti" } ],
+  ORG_EMAIL: "os.cre8ive@gmail.com",
+  PAY: { account: "", bank: "", iban: "", recipient: "Oleksandr Kukushkin", amounts: { "Všechny 3 dny": 169, "Pouze Den 1": 59, "Pouze Den 2": 59, "Pouze Den 3": 59, "Den 1 + Den 2": 99, "Den 1 + Den 3": 99, "Den 2 + Den 3": 99 } } /* doplňte číslo účtu, IBAN a částky */
+};
+const COLLECTION = "registrace_webinar";
+
+/* ============ MODÁLNÍ OKNA ============ */
+const DOCS = {
+  gdpr: `<h2>Ochrana osobních údajů (GDPR)</h2>
+    <p>Osobní údaje (jméno, e-mail, telefon) jsou zpracovávány výhradně za účelem organizace 3denního online workshopu, zasílání přístupových odkazů ke streamu a výukových materiálů.</p>
+    <p>Údaje nebudou poskytnuty třetím stranám ani využívány k nevyžádaným marketingovým sdělením. Údaje jsou uchovávány po dobu nezbytně nutnou k realizaci akce.</p>`,
+  obchodni: `<h2>Obchodní podmínky &amp; projektové vymezení</h2><ul>
+    <li>Jde o nekomerční autorský a kreativní studentský projekt pod značkou O&amp;S CreativeWorks (SashaLab). Nejedná se o oficiální podnikatelský subjekt, živnost ani firmu.</li>
+    <li>Workshop probíhá výhradně online formou živého vysílání. Přihlásit se můžete na celý intenziv, na jednotlivé dny nebo na jejich kombinaci.</li>
+    <li>Případný registrační poplatek slouží jako dobrovolný příspěvek na pokrytí technických a organizačních nákladů spojených se živým vysíláním.</li>
+    <li>Projekt ani webinář nejsou sponzorovány, podporovány ani oficiálně propojeny se žádnou třetí stranou či komerční firmou.</li></ul>`
+};
+const dlg = document.getElementById("dlg"), dlgBody = document.getElementById("dlgBody");
+function openModal(html){
+  dlgBody.innerHTML = '<button class="x" type="button" id="xBtn">Zavřít</button>' + html;
+  document.getElementById("xBtn").onclick = () => dlg.close();
+  dlg.showModal();
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-modal]");
+  if (t){ e.preventDefault(); openModal(DOCS[t.dataset.modal]); }
+});
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+/* ============ ULOŽENÍ DO DATABÁZE ============ */
+async function saveSupabase(rec){
+  const r = await fetch(CONFIG.SUPABASE_URL + "/rest/v1/" + COLLECTION, {
+    method: "POST",
+    headers: {"Content-Type":"application/json", apikey: CONFIG.SUPABASE_ANON_KEY, Authorization: "Bearer " + CONFIG.SUPABASE_ANON_KEY, Prefer: "return=minimal"},
+    body: JSON.stringify({...rec, datum_registrace: new Date().toISOString()})
+  });
+  if (!r.ok) throw new Error("Supabase " + r.status);
+  return "supabase";
+}
+/* Firestore (na vlastním hostingu po načtení Firebase SDK):
+   await addDoc(collection(db, "registrace_webinar"), {...rec, datum_registrace: serverTimestamp()}); */
+async function saveArtifactDb(rec){
+  if (!window.claude || !claude.use) return null;
+  const db = await claude.use("db");
+  if (!db) return null;
+  const user = await claude.use("user");
+  if (!user) return null;
+  const id = await user.id(); /* jedna přihláška na přihlášeného uživatele; čtou ji jen správci */
+  await db.doc(COLLECTION + "/" + id).set({id, ...rec, datum_registrace: new Date().toISOString()});
+  return "artifact";
+}
+async function saveRegistration(rec){
+  if (CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY) return saveSupabase(rec);
+  try { const r = await saveArtifactDb(rec); if (r) return r; } catch(e){ console.warn(e); }
+  const body = ["Jméno: "+rec.jmeno,"E-mail: "+rec.email,"Telefon: "+rec.telefon,"Vybrané dny: "+rec.vybrane_dny,"Poznámka: "+(rec.poznamka||"-"),"Souhlas GDPR: ano"].join("\n");
+  location.href = "mailto:" + CONFIG.ORG_EMAIL + "?subject=" + encodeURIComponent("Přihláška: 3denní online workshop") + "&body=" + encodeURIComponent(body);
+  return "mailto";
+}
+
+/* ============ VALIDACE A ODESLÁNÍ ============ */
+const form = document.getElementById("reg"), btn = document.getElementById("submitBtn"), formerr = document.getElementById("formerr");
+const rules = {
+  jmeno: v => v.trim().split(/\s+/).filter(Boolean).length >= 2 ? "" : "Vyplňte jméno i příjmení.",
+  email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Zadejte platný e-mail, např. jmeno@domena.cz.",
+  telefon: v => /^\+?[0-9 ]{9,16}$/.test(v.trim()) ? "" : "Zadejte telefon, např. +420 123 456 789."
+};
+function setErr(name, msg){
+  const s = form.querySelector('[data-for="'+name+'"]');
+  if (s){ s.textContent = msg; s.closest("label, div").classList.toggle("invalid", !!msg); }
+}
+function validate(){
+  let ok = true;
+  for (const k in rules){ const m = rules[k](form.elements[k].value); setErr(k, m); if (m) ok = false; }
+  const g = form.elements.souhlas_gdpr.checked;
+  setErr("souhlas_gdpr", g ? "" : "Pro odeslání je nutný souhlas s GDPR a podmínkami."); if (!g) ok = false;
+  return ok;
+}
+form.addEventListener("input", e => { if (rules[e.target.name]) setErr(e.target.name, rules[e.target.name](e.target.value)); });
+
+form.addEventListener("submit", async e => {
+  e.preventDefault(); formerr.textContent = "";
+  if (form.elements.web.value) return; /* honeypot */
+  if (!validate()){ const f = form.querySelector(".invalid input"); if (f) f.focus(); return; }
+  const rec = {
+    jmeno: form.elements.jmeno.value.trim(), email: form.elements.email.value.trim().toLowerCase(),
+    telefon: form.elements.telefon.value.trim(), vybrane_dny: form.elements.vybrane_dny.value,
+    poznamka: form.elements.poznamka.value.trim(), souhlas_gdpr: true, stav_platby: "cekaci"
+  };
+  btn.disabled = true; const label = btn.textContent; btn.textContent = "Odesílám…";
+  try {
+    const mode = await saveRegistrationToDatabase(rec);
+    showThanks(rec, mode); form.reset();
+  } catch(err){
+    console.error(err);
+    formerr.innerHTML = 'Přihlášku se nepodařilo odeslat. Zkontrolujte připojení a <button type="button" class="retry" id="retryBtn">zkuste to znovu</button>, nebo napište lektorovi na <a href="mailto:' + CONFIG.ORG_EMAIL + '">' + CONFIG.ORG_EMAIL + '</a>.';
+    document.getElementById("retryBtn").onclick = () => form.requestSubmit();
+  } finally { btn.disabled = false; btn.textContent = label; }
+});
+
+/* ============ DĚKOVNÉ OKNO + PLATBA ============ */
+function showThanks(rec, mode){
+  const P = CONFIG.PAY, amount = P.amounts[rec.vybrane_dny] || 0, vs = String(Date.now()).slice(-8);
+  const hasAcc = !!P.iban;
+  let pay;
+  if (hasAcc){
+    const spd = "SPD*1.0*ACC:" + P.iban.replace(/\s/g,"") + (amount ? "*AM:" + amount.toFixed(2) : "") + "*CC:CZK*X-VS:" + vs + "*MSG:WORKSHOP";
+    let svg = "";
+    try { const q = qrcode(0, "M"); q.addData(spd); q.make(); svg = q.createSvgTag({cellSize:4, margin:0, scalable:true}); } catch(_){}
+    pay = '<div class="pay"><div class="qr" aria-label="QR kód pro platbu">' + svg + '</div><dl>' +
+      '<dt>Příjemce</dt><dd>' + P.recipient + '</dd><dt>Účet</dt><dd>' + (P.account || P.iban) + (P.bank ? "/" + P.bank : "") + '</dd>' +
+      (amount ? '<dt>Částka</dt><dd>' + amount + ' Kč</dd>' : '') + '<dt>Variabilní symbol</dt><dd>' + vs + '</dd></dl></div>';
+  } else {
+    pay = '<p>Údaje k platbě (číslo účtu a QR kód) vám pošleme na <b>' + rec.email.replace(/[<>&]/g,"") + '</b>.</p>';
+  }
+  const mailNote = mode === "mailto" ? '<p class="note">Otevřel se e-mail s přihláškou. Místo je rezervované až po jeho odeslání.</p>' : "";
+  openModal('<h2>Děkujeme, ' + esc(rec.jmeno.split(" ")[0]) + '!</h2><p>Vaše přihláška je přijata.</p><ul class="sum"><li>Jméno: <b>' + esc(rec.jmeno) + '</b></li><li>E-mail: <b>' + esc(rec.email) + '</b></li><li>Vybrané dny: <b>' + esc(rec.vybrane_dny) + '</b></li></ul><p><b>Odkaz do streamu na LiveWebinar.com vám pošleme e-mailem.</b></p>' + pay +
+    '<p class="note">Případný poplatek je dobrovolný příspěvek na technické a organizační náklady živého vysílání.</p>' + mailNote);
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+/* ============ DNY: DATA V PROGRAMU + VÝBĚR VE FORMULÁŘI ============ */
+const D = CONFIG.DAYS, S = i => D[i].short, T = i => D[i].title;
+document.querySelectorAll(".dd").forEach(el => el.textContent = D[el.dataset.day].label);
+[["Všechny 3 dny", "KOMPLETNÍ WORKSHOP: všechny 3 dny (" + S(0) + " – " + S(2) + ")"],
+ ["Pouze Den 1", "Pouze DEN 1 (" + S(0) + "): " + T(0)], ["Pouze Den 2", "Pouze DEN 2 (" + S(1) + "): " + T(1)], ["Pouze Den 3", "Pouze DEN 3 (" + S(2) + "): " + T(2)],
+ ["Den 1 + Den 2", "DEN 1 + DEN 2 (" + S(0) + ", " + S(1) + ")"], ["Den 1 + Den 3", "DEN 1 + DEN 3 (" + S(0) + ", " + S(2) + ")"], ["Den 2 + Den 3", "DEN 2 + DEN 3 (" + S(1) + ", " + S(2) + ")"]
+].forEach(([v, t]) => document.getElementById("dnySel").add(new Option(t + (CONFIG.PAY.amounts[v] ? " – " + CONFIG.PAY.amounts[v] + " Kč" : ""), v)));
+
+/* ============ ULOŽENÍ PŘIHLÁŠKY (Supabase REST / Firestore REST / záloha) ============ */
+async function saveFirestore(rec){
+  const F = CONFIG.FIRESTORE, s = v => ({ stringValue: v });
+  const r = await fetch("https://firestore.googleapis.com/v1/projects/" + F.projectId + "/databases/(default)/documents/" + COLLECTION + "?key=" + F.apiKey, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ fields: { jmeno: s(rec.jmeno), email: s(rec.email), telefon: s(rec.telefon), vybrane_dny: s(rec.vybrane_dny), poznamka: s(rec.poznamka),
+      souhlas_gdpr: { booleanValue: true }, datum_registrace: { timestampValue: new Date().toISOString() }, stav_platby: s("cekaci") } })
+  });
+  if (!r.ok) throw new Error("Firestore " + r.status);
+  return "firestore";
+}
+async function saveRegistrationToDatabase(data){
+  const rec = { jmeno: data.jmeno, email: data.email, telefon: data.telefon, vybrane_dny: data.vybrane_dny, poznamka: data.poznamka || "", souhlas_gdpr: true, stav_platby: "cekaci" };
+  if (CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY) return saveSupabase(rec);
+  if (CONFIG.FIRESTORE.projectId && CONFIG.FIRESTORE.apiKey) return saveFirestore(rec);
+  return saveRegistration(rec); /* bez konfigurace: databáze hostingu, jinak e-mail lektorovi */
+}
+
+/* ============ ODPOČET ============
+   Doplňte skutečný začátek streamu (ISO, časové pásmo CET/CEST). Datum níže je zástupné. */
+const EVENT_START = CONFIG.DAYS[0].start;
+const cdv = document.getElementById("cdv"), cdBox = document.getElementById("cd");
+function tick(){
+  const ms = new Date(EVENT_START) - Date.now();
+  if (isNaN(ms)){ cdBox.hidden = true; return; }
+  if (ms <= 0){ cdBox.querySelector(".cdl").textContent = "Živý stream už začal."; cdv.textContent = ""; return; }
+  const d = Math.floor(ms/864e5), h = Math.floor(ms%864e5/36e5), m = Math.floor(ms%36e5/6e4);
+  cdv.textContent = d + " dní " + h + " hodin " + m + " minut";
+}
+tick(); setInterval(tick, 30000);
+
+/* ============ SDÍLENÍ ============ */
+const shareUrl = location.href.split("#")[0], shareTxt = "3denní online workshop (O&S CreativeWorks / SashaLab)";
+document.getElementById("shWa").href = "https://wa.me/?text=" + encodeURIComponent(shareTxt + " " + shareUrl);
+document.getElementById("shMs").href = /Android|iPhone|iPad/i.test(navigator.userAgent)
+  ? "fb-messenger://share/?link=" + encodeURIComponent(shareUrl)
+  : "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareUrl);
+const cp = document.getElementById("shCopy");
+cp.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(shareUrl); cp.textContent = "Odkaz zkopírován"; }
+  catch(_){ prompt("Zkopírujte odkaz:", shareUrl); }
+  setTimeout(() => cp.textContent = "Kopírovat odkaz", 2500);
+});
+</script>
+</body>
+</html>
